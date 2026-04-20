@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Jaanu 💖</title>
+  <style>
+    :root{
+      --bg1:#f7efff;
+      --bg2:#fff1f7;
+      --bg3:#fffafd;
+      --lav:#caa9ff;
+      --lav2:#ead9ff;
+      --rose:#ff8db8;
+      --rose2:#ffd0e2;
+      --deep:#7d4d92;
+      --text:#6e4f6a;
+      --soft:#8f708c;
+      --glass:rgba(255,255,255,0.64);
+      --glass2:rgba(255,255,255,0.78);
+      --shadow:0 16px 40px rgba(177, 128, 255, 0.14);
+      --border:rgba(255,255,255,0.92);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    html,body{
+      width:100%;
+      min-height:100%;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.75), transparent 20%),
+        radial-gradient(circle at 85% 10%, rgba(224,198,255,0.35), transparent 22%),
+        radial-gradient(circle at 50% 75%, rgba(255,218,232,0.35), transparent 28%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
+      position:relative;
+    }
+
+    /* soft sparkle layer */
+    .sparkle-bg{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.34;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.95) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,215,235,.55) 1px, transparent 1px),
+        radial-gradient(circle, rgba(219,195,255,.45) 1px, transparent 1px);
+      background-size:42px 42px, 70px 70px, 95px 95px;
+      background-position:0 0, 20px 30px, 40px 60px;
+    }
+
+    /* floating love emojis */
+    .floaters{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .floater{
+      position:absolute;
+      bottom:-40px;
+      font-size:18px;
+      opacity:.28;
+      animation:floatUp linear infinite;
+      user-select:none;
+      filter:drop-shadow(0 6px 10px rgba(255,255,255,.35));
+    }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(0) scale(.85) rotate(0deg);
+        opacity:0;
+      }
+      10%{ opacity:.28; }
+      100%{
+        transform:translateY(-120vh) scale(1.15) rotate(18deg);
+        opacity:0;
+      }
+    }
+
+    .page{
+      position:relative;
+      z-index:2;
+      width:min(100%, 1100px);
+      margin:0 auto;
+      padding:16px 12px 24px;
+    }
+
+    .frame{
+      position:relative;
+      width:100%;
+      min-height:calc(100vh - 32px);
+      border-radius:30px;
+      background:linear-gradient(180deg, var(--glass2), var(--glass));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:16px;
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.55), transparent 22%),
+        radial-gradient(circle at 85% 12%, rgba(226,202,255,.22), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(255,206,228,.18), transparent 28%);
+    }
+
+    .frame::after{
+      content:"";
+      position:absolute;
+      inset:10px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.55);
+      pointer-events:none;
+      box-shadow: inset 0 0 20px rgba(255,255,255,.12);
+    }
+
+    .screen{
+      position:relative;
+      z-index:2;
+      width:100%;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      animation:fadeIn .55s ease;
+    }
+
+    .screen.active{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(12px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    /* HERO */
+    .hero-card{
+      width:100%;
+      max-width:920px;
+      padding:24px 18px;
+      border-radius:28px;
+      background:rgba(255,255,255,.58);
+      border:1px solid rgba(255,255,255,.85);
+      box-shadow:0 12px 28px rgba(190,145,255,.12);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.5), transparent 35%),
+        radial-gradient(circle at 15% 80%, rgba(255,214,233,.18), transparent 25%);
+      pointer-events:none;
+    }
+
+    .mini{
+      position:relative;
+      z-index:1;
+      font-size:.95rem;
+      color:#a56cb3;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    .hero-title{
+      position:relative;
+      z-index:1;
+      font-size:clamp(2rem, 6vw, 4rem);
+      line-height:1.05;
+      font-weight:800;
+      color:var(--deep);
+      text-shadow:0 4px 12px rgba(255,255,255,.65);
+    }
+
+    .hero-sub{
+      position:relative;
+      z-index:1;
+      margin-top:12px;
+      font-size:1rem;
+      line-height:1.7;
+      color:var(--soft);
+      max-width:700px;
+      margin-inline:auto;
+    }
+
+    .cta-btn{
+      position:relative;
+      z-index:1;
+      margin-top:18px;
+      border:none;
+      outline:none;
+      cursor:pointer;
+      padding:14px 24px;
+      border-radius:999px;
+      font-size:1rem;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(135deg, #c692ff, #ff8db7);
+      box-shadow:0 14px 28px rgba(198,146,255,.22);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .cta-btn:active{
+      transform:scale(.97);
+      box-shadow:0 8px 18px rgba(198,146,255,.18);
+    }
+
+    /* METER */
+    .meter-card{
+      width:100%;
+      max-width:900px;
+      padding:24px 18px;
+      border-radius:28px;
+      background:rgba(255,255,255,.62);
+      border:1px solid rgba(255,255,255,.9);
+      box-shadow:0 12px 30px rgba(190,145,255,.14);
+      text-align:center;
+    }
+
+    .meter-title{
+      font-size:1.25rem;
+      font-weight:800;
+      color:var(--deep);
+      margin-bottom:8px;
+    }
+
+    .meter-sub{
+      font-size:.96rem;
+      color:var(--soft);
+      margin-bottom:14px;
+      line-height:1.6;
+    }
+
+    .status-line{
+      min-height:26px;
+      font-size:1rem;
+      font-weight:600;
+      color:#9a67a8;
+      margin-bottom:12px;
+    }
+
+    .meter-shell{
+      width:100%;
+      height:26px;
+      border-radius:999px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.95);
+      box-shadow:inset 0 0 0 2px rgba(240,226,255,.8);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .meter-fill{
+      width:0%;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg, #d4b4ff, #ff9fc2, #ff7bb0);
+      transition:width .7s ease;
+      position:relative;
+    }
+
+    .meter-fill::after{
+      content:"";
+      position:absolute;
+      top:0;
+      right:0;
+      width:30px;
+      height:100%;
+      background:linear-gradient(to right, transparent, rgba(255,255,255,.65));
+      filter:blur(5px);
+    }
+
+    .percent{
+      margin-top:10px;
+      min-height:30px;
+      font-size:1.2rem;
+      font-weight:800;
+      color:var(--deep);
+    }
+
+    .meter-shell.breaking{
+      animation:shake .35s linear 4;
+      box-shadow:
+        inset 0 0 0 2px rgba(240,226,255,.8),
+        0 0 18px rgba(255, 141, 183, .35);
+    }
+
+    .meter-fill.breaking{
+      animation:flicker .22s linear 6;
+      background:linear-gradient(90deg, #fff, #ff9fc2, #d4b4ff);
+    }
+
+    @keyframes shake{
+      0%,100%{transform:translateX(0);}
+      20%{transform:translateX(-3px);}
+      40%{transform:translateX(3px);}
+      60%{transform:translateX(-2px);}
+      80%{transform:translateX(2px);}
+    }
+
+    @keyframes flicker{
+      0%,100%{opacity:1;}
+      50%{opacity:.55;}
+    }
+
+    .final-reveal{
+      margin-top:16px;
+      opacity:0;
+      transform:translateY(10px) scale(.95);
+      transition:all .6s ease;
+    }
+
+    .final-reveal.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+
+    .overload{
+      font-size:1rem;
+      font-weight:700;
+      color:#c25f8a;
+      margin-bottom:6px;
+    }
+
+    .cute{
+      font-size:1.1rem;
+      font-weight:800;
+      color:var(--deep);
+      margin-bottom:8px;
+    }
+
+    .infinity{
+      font-size:clamp(4rem, 10vw, 6rem);
+      line-height:1;
+      animation:pulseInfinity 1.8s ease-in-out infinite;
+      filter:drop-shadow(0 8px 18px rgba(255,141,183,.18));
+    }
+
+    @keyframes pulseInfinity{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+    }
+
+    /* LETTER */
+    .letter-layout{
+      width:100%;
+      max-width:980px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+    }
+
+    .photo-glass{
+      width:100%;
+      max-width:340px;
+      padding:12px;
+      border-radius:28px;
+      background:rgba(255,255,255,.52);
+      border:1px solid rgba(255,255,255,.88);
+      box-shadow:0 14px 28px rgba(190,145,255,.12);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      position:relative;
+    }
+
+    .photo-glass::before{
+      content:"✨ 💖 ✨";
+      position:absolute;
+      top:10px;
+      right:14px;
+      font-size:.95rem;
+      opacity:.55;
+    }
+
+    .photo-frame{
+      width:100%;
+      padding:8px;
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(243,232,255,.9));
+      box-shadow:0 14px 24px rgba(190,145,255,.12);
+    }
+
+    .photo-frame img{
+      width:100%;
+      aspect-ratio:3/4;
+      object-fit:cover;
+      display:block;
+      border-radius:18px;
+    }
+
+    .letter-card{
+      width:100%;
+      padding:20px 16px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,247,252,.9));
+      border:1px solid rgba(255,255,255,.95);
+      box-shadow:0 16px 34px rgba(190,145,255,.14);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .letter-card::before{
+      content:"💖 ✨ 💌 ✨ 💖";
+      position:absolute;
+      top:12px;
+      right:14px;
+      font-size:1rem;
+      opacity:.45;
+    }
+
+    .letter-head{
+      text-align:center;
+      margin-bottom:16px;
+    }
+
+    .letter-head h2{
+      font-size:clamp(1.55rem, 4vw, 2.3rem);
+      color:var(--deep);
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .letter-head p{
+      color:var(--soft);
+      font-size:1rem;
+    }
+
+    .letter-box{
+      width:100%;
+      padding:18px 16px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,240,255,.8));
+      border:1px solid rgba(255,255,255,.9);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+    }
+
+    .letter-text{
+      font-size:1rem;
+      line-height:1.95;
+      color:#74506f;
+      white-space:pre-line;
+      text-align:left;
+    }
+
+    .signature{
+      margin-top:16px;
+      text-align:center;
+      font-size:1rem;
+      font-weight:700;
+      color:var(--deep);
+    }
+
+    .footer-love{
+      margin-top:8px;
+      text-align:center;
+      font-size:.95rem;
+      color:#9a77a0;
+    }
+
+    @media (min-width: 768px){
+      .page{ padding:22px 18px 30px; }
+      .frame{ padding:24px; }
+      .photo-glass{ max-width:380px; }
+      .letter-card{ padding:24px 22px; }
+      .letter-box{ padding:22px 20px; }
+      .letter-text{
+        font-size:1.05rem;
+        line-height:2;
+      }
+    }
+
+    @media (max-width: 480px){
+      .page{ padding:12px 10px 18px; }
+      .frame{
+        min-height:calc(100vh - 24px);
+        border-radius:24px;
+        padding:14px;
+      }
+      .hero-card, .meter-card, .photo-glass, .letter-card{
+        border-radius:22px;
+      }
+      .letter-box{
+        padding:16px 14px;
+      }
+      .letter-text{
+        font-size:.95rem;
+        line-height:1.85;
+      }
+      .photo-glass{ max-width:290px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkle-bg"></div>
+  <div class="floaters" id="floaters"></div>
+
+  <audio id="bgMusic" preload="auto" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+  <div class="page">
+    <main class="frame">
+
+      <!-- SCREEN 1 -->
+      <section class="screen active" id="heroScreen">
+        <div class="hero-card">
+          <div class="mini">A tiny surprise for my lovely jaanu 💖</div>
+          <h1 class="hero-title">Hey Jaanu,<br>My Lovely Girl 💘</h1>
+          <p class="hero-sub">
+            I made this little surprise with a lot of love…<br>
+            because today is all about <b>you</b> ✨
+          </p>
+          <button class="cta-btn" id="startBtn">Tap for your surprise 🎁</button>
+        </div>
+      </section>
+
+      <!-- SCREEN 2 -->
+      <section class="screen" id="meterScreen">
+        <div class="meter-card">
+          <div class="meter-title">Measuring Cuteness... 💖</div>
+          <div class="meter-sub">Please wait while we calculate impossible levels 😚</div>
+
+          <div class="status-line" id="statusLine">Initializing cuteness scanner...</div>
+
+          <div class="meter-shell" id="meterShell">
+            <div class="meter-fill" id="meterFill"></div>
+          </div>
+
+          <div class="percent" id="percentText">0%</div>
+
+          <div class="final-reveal" id="finalReveal">
+            <div class="overload">System overloaded 💖</div>
+            <div class="cute">Too Cute to Measure</div>
+            <div class="infinity">♾️</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3 -->
+      <section class="screen" id="letterScreen">
+        <div class="letter-layout">
+
+          <div class="photo-glass">
+            <div class="photo-frame">
+              <img src="her.png" alt="Her" />
+            </div>
+          </div>
+
+          <div class="letter-card">
+            <div class="letter-head">
+              <h2>Happy Birthday, Momo 🎂💖</h2>
+              <p>To the prettiest girl ever 🤍</p>
+            </div>
+
+            <div class="letter-box">
+              <div class="letter-text">
+Momo… jab hum 2023 me mile the,
+tab shayad mujhe khud bhi nahi pata tha
+ki ek din tum meri life ka itna beautiful
+aur important part ban jaogi.
+
+Sach bolu, pehli baar baat karke hi
+dil me ek alag si feeling aa gayi thi,
+jaise tum sirf ek normal person nahi,
+balki meri story ka special part banne wali ho.
+
+Pehle hum dost bane,
+aur dheere dheere har baat,
+har hasi, har little fight,
+aur har choti si memory ne
+humari bond ko aur zyada
+real aur beautiful bana diya.
+
+Aaj tum sirf meri girlfriend nahi,
+tum meri khushi ho, mera sukoon ho,
+aur meri life ki sabse pyari feelings me se ek ho.
+
+13 November 2025 se lekar aaj tak,
+tumhare saath har moment
+mere liye special raha hai,
+aur honestly… tumne meri life ko
+bahut zyada beautiful bana diya.
+
+Happy Birthday, meri pretty girl.
+Stay happy, stay blessed,
+and keep shining always. 🤍🎂✨
+              </div>
+
+              <div class="signature">
+                With all my love,<br>
+                Yuv 🤍
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-love">
+            Made with way too much pyaar for one very special girl 💘
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const floaters = document.getElementById("floaters");
+    const bgMusic = document.getElementById("bgMusic");
+    const startBtn = document.getElementById("startBtn");
+
+    const heroScreen = document.getElementById("heroScreen");
+    const meterScreen = document.getElementById("meterScreen");
+    const letterScreen = document.getElementById("letterScreen");
+
+    const meterFill = document.getElementById("meterFill");
+    const meterShell = document.getElementById("meterShell");
+    const percentText = document.getElementById("percentText");
+    const statusLine = document.getElementById("statusLine");
+    const finalReveal = document.getElementById("finalReveal");
+
+    const floaterSet = ["💖","✨","💘","🤍","💌","🌸"];
+
+    function createFloater() {
+      const f = document.createElement("div");
+      f.className = "floater";
+      f.innerText = floaterSet[Math.floor(Math.random() * floaterSet.length)];
+      f.style.left = Math.random() * 100 + "vw";
+      f.style.animationDuration = (6 + Math.random() * 6) + "s";
+      f.style.fontSize = (14 + Math.random() * 18) + "px";
+      floaters.appendChild(f);
+      setTimeout(() => f.remove(), 12000);
+    }
+
+    setInterval(createFloater, 650);
+    for (let i = 0; i < 10; i++) setTimeout(createFloater, i * 250);
+
+    function showScreen(screen) {
+      [heroScreen, meterScreen, letterScreen].forEach(s => s.classList.remove("active"));
+      screen.classList.add("active");
+    }
+
+    async function startExperience() {
+      startBtn.disabled = true;
+      startBtn.innerText = "Opening your surprise... 💖";
+
+      try {
+        bgMusic.volume = 1.0;
+        await bgMusic.play();
+      } catch (e) {
+        console.log("Autoplay blocked by browser.");
+      }
+
+      setTimeout(() => showScreen(meterScreen), 250);
+
+      const steps = [
+        { p: 10, text: "Analyzing smile... 😚" },
+        { p: 20, text: "Checking pretty levels... 💗" },
+        { p: 35, text: "Calculating babyness... 🥺" },
+        { p: 50, text: "Too much cuteness detected... 💞" },
+        { p: 80, text: "System getting unstable... 👀" },
+        { p: 100, text: "Maximum limit reached... ⚠️" }
+      ];
+
+      let delay = 700;
+
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          meterFill.style.width = step.p + "%";
+          percentText.innerText = step.p + "%";
+          statusLine.innerText = step.text;
+        }, delay);
+
+        delay += index === steps.length - 1 ? 900 : 800;
+      });
+
+      setTimeout(() => {
+        meterShell.classList.add("breaking");
+        meterFill.classList.add("breaking");
+        statusLine.innerText = "System overloaded 💖";
+        percentText.innerText = "ERROR";
+      }, delay);
+
+      setTimeout(() => {
+        meterFill.style.width = "100%";
+        finalReveal.classList.add("show");
+      }, delay + 1200);
+
+      setTimeout(() => {
+        showScreen(letterScreen);
+      }, delay + 2600);
+    }
+
+    startBtn.addEventListener("click", startExperience, { once: true });
+  </script>
+</body>
+</html>
